@@ -396,7 +396,7 @@
 
         [self correctPositionOfAllAnnotations];
 
-        self.minZoom = 0; // force new minZoom calculation
+//        self.minZoom = 0; // force new minZoom calculation
 
         if (_loadingTileView)
             _loadingTileView.mapZooming = NO;
@@ -2264,7 +2264,7 @@
 
     _minZoom = newMinZoom;
 
-//    RMLog(@"New minZoom:%f", newMinZoom);
+    RMLog(@"New minZoom:%f", newMinZoom);
 
     _mapScrollView.minimumZoomScale = exp2f(newMinZoom);
 }
@@ -2733,8 +2733,8 @@
 
         for (RMAnnotation *annotation in previousVisibleAnnotations)
         {
-            if ( ! annotation.isUserLocationAnnotation)
-            {
+//            if ( ! annotation.isUserLocationAnnotation)
+//            {
                 if (_delegateHasWillHideLayerForAnnotation)
                     [_delegate mapView:self willHideLayerForAnnotation:annotation];
 
@@ -2744,7 +2744,7 @@
                     [_delegate mapView:self didHideLayerForAnnotation:annotation];
 
                 [_visibleAnnotations removeObject:annotation];
-            }
+//            }
         }
 
         previousVisibleAnnotations = nil;
